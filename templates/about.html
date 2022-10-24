@@ -66,29 +66,40 @@ alert('Right Click is Disabled');
 
 						<!-- menu start -->
 						<nav class="main-menu">
-							<ul>
-								<li class="current-list-item"><a href="/">Home</a>
-								</li>
-								<li><a href="/about">About</a></li>
-								<li><a href="#">Crop Management</a>
-									<ul class="sub-menu">
-										<li><a href="/crop_prediction">Crop Predicition</a></li>
-										<li><a href="/crop_requisites_1">Crop Requisites</a></li>
-									</ul>
-								</li>
-								<script type="text/javascript"
-									src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-								<script type="text/javascript">
-									$(function () {
-										$('#scrollToBottom').bind("click", function () {
-											$('html, body').animate({ scrollTop: $(document).height() }, 1200);
-											return false;
-										});
-									});
-								</script>
-								<li><a href="javascript:;" id="scrollToBottom">Contact Us</a></li>
-							</ul>
-						</nav>
+                        <ul>
+                            <li class="current-list-item"><a href="/">Home</a>
+                            </li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="sub-menu">
+                                    <li><a href="/crop_prediction">Crop Predicition</a></li>
+                                    <li><a href="/crop_requisites_1">Crop Requisites</a></li>
+									<li><a href="crop_management">Crop Management</a> </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <script type="text/javascript"
+                                    src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $('#scrollToBottom').bind("click", function () {
+                                            $('html, body').animate({ scrollTop: $(document).height() }, 1200);
+                                            return false;
+                                        });
+                                    });
+                                </script>
+								<div class="header-icons">
+										<a class="shopping-cart" href="/shop"><i class="fas fa-shopping-cart"></i></a>
+<!--										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>-->
+									<a href="javascript:;" id="scrollToBottom">Contact Us</a>
+									</div>
+
+                            </li>
+                        </ul>
+                    </nav>
+
 
 						<!-- menu end -->
 					</div>
