@@ -67,7 +67,7 @@
                                 <ul class="sub-menu">
                                     <li><a href="/crop_prediction">Crop Predicition</a></li>
                                     <li><a href="/crop_requisites_1">Crop Requisites</a></li>
-									<li><a href="crop_management">Crop Management</a> </li>
+									<li><a href="/basics-1">Crop Management</a> </li>
 
                                 </ul>
                             </li>
@@ -161,7 +161,10 @@
 					<a href="/seeds">
 					<div class="single-product-item">
 						<div class="product-image">
+
 							<a href="/seeds"><img src="static/images/seeds.jpeg" alt=""></a>
+<!--							<a href="https://lh3.googleusercontent.com/ISieRFrjmodO-7jRVEBqj7xhLG-cTayG5IRaXh9vXu2kfuME_tdkSPSqUBuJQQPVknuzFbdq2JREkPuWg1g9_DEpEuRbaYo1FSjGdzDhukg6EUpKcaYS1v9E3vkOU2zcu-wDbHfxzw=w2400?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/ISieRFrjmodO-7jRVEBqj7xhLG-cTayG5IRaXh9vXu2kfuME_tdkSPSqUBuJQQPVknuzFbdq2JREkPuWg1g9_DEpEuRbaYo1FSjGdzDhukg6EUpKcaYS1v9E3vkOU2zcu-wDbHfxzw=w600-h315-p-k" /> </a>-->
+<!--							<a href="/seeds"><img src="https://lh3.googleusercontent.com/ISieRFrjmodO-7jRVEBqj7xhLG-cTayG5IRaXh9vXu2kfuME_tdkSPSqUBuJQQPVknuzFbdq2JREkPuWg1g9_DEpEuRbaYo1FSjGdzDhukg6EUpKcaYS1v9E3vkOU2zcu-wDbHfxzw=w600-h315-p-k" height="125px" alt=""></a>-->
 						</div>
 						<h3>Seeds</h3>
 
@@ -296,6 +299,16 @@
 
 						</ul>
 					</div>
+					<div class="col-lg-3 col-md-6">
+					<div class="footer-box subscribe">
+						<h2 class="widget-title">Subscribe</h2>
+						<p>Subscribe to our mailing list to get the latest updates.</p>
+						<form action="{{ url_for('mail')}}" method="post">
+							<input type="email" placeholder="Email" name="Mail" >
+							<button type="submit"><i class="fas fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
 				</div>
 			</div>
 		</div>

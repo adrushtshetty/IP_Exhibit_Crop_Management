@@ -242,6 +242,7 @@
 							<li><a href="/seeds">1</a></li>
 							<li><a class="active" href="#">2</a></li>
 							<li><a href="/seeds2">3</a></li>
+							<li><a  href="/seeds3">4</a></li>
 							<li><a href="/seeds2">Next</a></li>
 						</ul>
 					</div>
@@ -309,6 +310,16 @@
 
 						</ul>
 					</div>
+					<div class="col-lg-3 col-md-6">
+					<div class="footer-box subscribe">
+						<h2 class="widget-title">Subscribe</h2>
+						<p>Subscribe to our mailing list to get the latest updates.</p>
+						<form action="{{ url_for('mail')}}" method="post">
+							<input type="email" placeholder="Email" name="Mail" >
+							<button type="submit"><i class="fas fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
 				</div>
 			</div>
 		</div>

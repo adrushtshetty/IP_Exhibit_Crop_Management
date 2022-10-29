@@ -66,7 +66,7 @@
                                 <ul class="sub-menu">
                                     <li><a href="/crop_prediction">Crop Predicition</a></li>
                                     <li><a href="/crop_requisites_1">Crop Requisites</a></li>
-									<li><a href="crop_management">Crop Management</a> </li>
+									<li><a href="/basics-1">Crop Management</a> </li>
 
                                 </ul>
                             </li>
@@ -285,6 +285,16 @@
 
 						</ul>
 					</div>
+					<div class="col-lg-3 col-md-6">
+					<div class="footer-box subscribe">
+						<h2 class="widget-title">Subscribe</h2>
+						<p>Subscribe to our mailing list to get the latest updates.</p>
+						<form action="{{ url_for('mail')}}" method="post">
+							<input type="email" placeholder="Email" name="Mail" >
+							<button type="submit"><i class="fas fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
 				</div>
 			</div>
 		</div>
