@@ -270,7 +270,7 @@ def mail():
     from email.mime.multipart import MIMEMultipart
     from email.mime.text import MIMEText
 
-    me = "drdev.maill@gmail.com"
+    me = "cropmanagementmail@gmail.com"
     you=request.form['Mail']
     print(you)
     # you = "adrushtshetty@gmail.com"
@@ -413,7 +413,7 @@ def mail():
     <table border="0" cellpadding="0" cellspacing="0" class="image_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
     <tr>
     <td class="pad" style="padding-bottom:30px;padding-top:10px;width:100%;padding-right:0px;padding-left:0px;">
-    <div align="center" class="alignment" style="line-height:10px"><a href="http://www.example.com" style="outline:none" tabindex="-1" target="_blank"><img alt="Your Logo" src="https://lh3.googleusercontent.com/CJGIIXx1A-fx3fHNi5ttRJ6gtOtxPPn_ECY7kY9_svVVMK9AmmzgZR7IvAvfQKdUrsSwDEftzKOTT0laRWzp06TML07JtL5F-KX6KcHHX3qdCI4dLbAPmRzwisKKSBZJmmjHA5wTeA=w2400" style="display: block; height: auto; border: 0; width: 163px; max-width: 100%;" title="Your Logo" width="163"/></a></div>
+    <div align="center" class="alignment" style="line-height:10px"><a href="https://ip-exhibit-crop-management.herokuapp.com/" style="outline:none" tabindex="-1" target="_blank"><img alt="Your Logo" src="https://lh3.googleusercontent.com/EoHopvPXAyrKhmDx7E_uiP68I1bO4oSDTFdlU2ea6rfOawFfv5liG9cEh4jRsoenKFiZHTsEbV6pT_ODREgXqeuZdZTykF_kHC1pxcuxfJplEbV_Rt-LLa8DlhePmp81eMzXIAFqaA=w2400" style="display: block; height: auto; border: 0; width: 163px; max-width: 100%;" title="Your Logo" width="163"/></a></div>
     </td>
     </tr>
     </table>
@@ -446,7 +446,7 @@ def mail():
     <table border="0" cellpadding="0" cellspacing="0" class="image_block block-5" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
     <tr>
     <td class="pad" style="padding-top:5px;width:100%;padding-right:0px;padding-left:0px;">
-    <div align="center" class="alignment" style="line-height:10px"><img alt="Laptop" class="big" src="https://lh3.googleusercontent.com/j--BsJUJ1_aBvrjXPAdTwWg2CUtAczF8GipLz3Bm1aD1n_nEOOlEOcC5Jd6L3XLqqr-yOgPnhXzYlCua0ve2fL4K-cv9ONVVh0QM1_RIc5ox6DpvcvPkLl_5P88m0_-0C8gRg5YjzQ=w2400" style="display: block; height: auto; border: 0; width: 423px; max-width: 100%;" title="Laptop" width="423"/></div>
+    <div align="center" class="alignment" style="line-height:10px"><img alt="Laptop" class="big" src="https://lh3.googleusercontent.com/ahFeQu3vllxtg9cdlR0NW8xZSTRYnzLYnoeqJS8vdafhdhcB3LiQmgC6EziIsLP0fSW43gE5QgGFqzFJm2du0eP0eCC9ZtJ9_XUKEHX8TpW8N46GW__EtPbGr8q_Q-J3HiBrYdL31w=w2400" style="display: block; height: auto; border: 0; width: 423px; max-width: 100%;" title="Laptop" width="423"/></div>
     </td>
     </tr>
     </table>
@@ -703,7 +703,7 @@ def mail():
 
     mail.starttls()
 
-    mail.login('drdev.maill@gmail.com', 'mmieeonadmnrylqz')
+    mail.login('cropmanagementmail@gmail.com', 'mzukjnytdubqtxql')
     mail.sendmail(me, you, msg.as_string())
     mail.quit()
 
@@ -766,11 +766,159 @@ def predict():
 @app.route('/crop_requisites_1')
 def bench_1():
     return render_template("bench_1.html")
+
+@app.route('/crop_requisites_1',methods=['POST'])
+def bench_1mail():
+    from email.message import EmailMessage
+    import ssl
+    import smtplib
+
+    name = request.form['name']
+    phone = request.form['phone']
+    message = request.form['message']
+    crop=request.form['crop']
+    pt_mail = request.form['email']
+
+    Name = name
+    Phone = str(phone)
+    Mail = str(pt_mail)
+
+    Message = message
+    msge = "Name: ", Name, "Phone: ", Phone, "Mail ID:",pt_mail,"Crop:" ,crop,"Message: ", Message
+    msge = str(msge)
+
+    email_sender = "cropmanagementmail@gmail.com"
+    email_password = "mzukjnytdubqtxql"
+    email_receiver = ["adrushtshetty@gmail.com", "nithishg2005@gmail.com","pikaa1024@gmail.com"]
+    subject = "Name: "+Name+"Mail ID: "+pt_mail+"Crop: "+crop
+    body = """
+        {pName} needs the crop requisites for {pCrop}
+        
+
+        {pName}'s Message:
+        {pmessage}
+        --------------------------------------------------------
+
+        {pName}
+        Phone No.: {pNo}
+        Mail Id: {pMail}
+
+        """.format(pName=Name,  pMail=Mail, pNo=Phone, pmessage=Message,pCrop=crop)
+    em = EmailMessage()
+    em['From'] = email_sender
+    em['To'] = email_receiver
+    em['subject'] = subject
+    em.set_content(body)
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+        smtp.login(email_sender, email_password)
+        smtp.sendmail(email_sender, email_receiver, em.as_string())
+    return render_template("bench_1.html")
+
 @app.route('/crop_requisites_2')
 def bench_2():
     return render_template("bench_2.html")
+
+
+@app.route('/crop_requisites_2', methods=['POST'])
+def bench_2mail():
+    from email.message import EmailMessage
+    import ssl
+    import smtplib
+
+    name = request.form['name']
+    phone = request.form['phone']
+    message = request.form['message']
+    crop = request.form['crop']
+    pt_mail = request.form['email']
+
+    Name = name
+    Phone = str(phone)
+    Mail = str(pt_mail)
+
+    Message = message
+    msge = "Name: ", Name, "Phone: ", Phone, "Mail ID:", pt_mail, "Crop:", crop, "Message: ", Message
+    msge = str(msge)
+
+    email_sender = "cropmanagementmail@gmail.com"
+    email_password = "mzukjnytdubqtxql"
+    email_receiver = ["adrushtshetty@gmail.com", "nithishg2005@gmail.com", "pikaa1024@gmail.com"]
+    subject = "Name: " + Name + "Mail ID: " + pt_mail + "Crop: " + crop
+    body = """
+        {pName} needs the crop requisites for {pCrop}
+
+
+        {pName}'s Message:
+        {pmessage}
+        --------------------------------------------------------
+
+        {pName}
+        Phone No.: {pNo}
+        Mail Id: {pMail}
+
+        """.format(pName=Name, pMail=Mail, pNo=Phone, pmessage=Message, pCrop=crop)
+    em = EmailMessage()
+    em['From'] = email_sender
+    em['To'] = email_receiver
+    em['subject'] = subject
+    em.set_content(body)
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+        smtp.login(email_sender, email_password)
+        smtp.sendmail(email_sender, email_receiver, em.as_string())
+    return render_template("bench_2.html")
+
+
 @app.route('/crop_requisites_3')
 def bench_3():
     return render_template("bench_3.html")
+@app.route('/crop_requisites_3', methods=['POST'])
+def bench_3mail():
+    from email.message import EmailMessage
+    import ssl
+    import smtplib
+
+    name = request.form['name']
+    phone = request.form['phone']
+    message = request.form['message']
+    crop = request.form['crop']
+    pt_mail = request.form['email']
+
+    Name = name
+    Phone = str(phone)
+    Mail = str(pt_mail)
+
+    Message = message
+    msge = "Name: ", Name, "Phone: ", Phone, "Mail ID:", pt_mail, "Crop:", crop, "Message: ", Message
+    msge = str(msge)
+
+    email_sender = "cropmanagementmail@gmail.com"
+    email_password = "mzukjnytdubqtxql"
+    email_receiver = ["adrushtshetty@gmail.com", "nithishg2005@gmail.com", "pikaa1024@gmail.com"]
+    subject = "Name: " + Name + "Mail ID: " + pt_mail + "Crop: " + crop
+    body = """
+        {pName} needs the crop requisites for {pCrop}
+
+
+        {pName}'s Message:
+        {pmessage}
+        --------------------------------------------------------
+
+        {pName}
+        Phone No.: {pNo}
+        Mail Id: {pMail}
+
+        """.format(pName=Name, pMail=Mail, pNo=Phone, pmessage=Message, pCrop=crop)
+    em = EmailMessage()
+    em['From'] = email_sender
+    em['To'] = email_receiver
+    em['subject'] = subject
+    em.set_content(body)
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+        smtp.login(email_sender, email_password)
+        smtp.sendmail(email_sender, email_receiver, em.as_string())
+    return render_template("bench_3.html")
+
 if __name__ == '__main__':
     app.run(debug=True)
