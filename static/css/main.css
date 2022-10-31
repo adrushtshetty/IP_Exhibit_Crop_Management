@@ -1678,6 +1678,40 @@ p.excerpt {
   height: 450px;
 }
 
+.single-artcile-bg-bsc2 {
+  background-image: url(../images/seedbedprep.jpeg);
+  height: 450px;
+}
+
+.single-artcile-bg-bsc3 {
+  background-image: url(../images/planting.jpeg);
+  height: 310px;
+  width: 510px;
+}
+
+.single-artcile-bg-bsc4 {
+  background-image: url(../images/fert.jpeg);
+  height: 450px;
+}
+
+.single-artcile-bg-bsc5 {
+  background-image: url(../images/pest.jpeg);
+  height: 402px;
+  width: 650px;
+}
+
+.single-artcile-bg-bsc6 {
+  background-image: url(../images/irig.jpeg);
+  height: 310px;
+  width: 510px;
+}
+
+.single-artcile-bg-bsc8 {
+  background-image: url(../images/store.jpeg);
+  height: 310px;
+  width: 510px;
+}
+
 .pagination-wrap {
   margin-top: 40px;
 }
