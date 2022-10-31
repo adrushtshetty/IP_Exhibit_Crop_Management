@@ -1712,6 +1712,30 @@ p.excerpt {
   width: 510px;
 }
 
+.single-artcile-bg-bsc9 {
+  background-image: url(../images/add.jpeg);
+  height: 310px;
+  width: 510px;
+}
+
+.single-artcile-bg-advc1 {
+  background-image: url(../images/advc1.jpeg);
+  height: 410px;
+  width: 710px;
+}
+
+.single-artcile-bg-advc2 {
+  background-image: url(../images/advc2.jpeg);
+  height: 410px;
+  width: 710px;
+}
+
+.single-artcile-bg-advc3 {
+  background-image: url(../images/advc3.jpeg);
+  height:410px;
+  width:710px;
+}
+
 .pagination-wrap {
   margin-top: 40px;
 }

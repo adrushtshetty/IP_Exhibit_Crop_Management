@@ -16,6 +16,90 @@ def crop_prediction():
 def about():
     return render_template("about.html")
 
+@app.route('/fertilizers')
+def fertilizers():
+    return render_template("fertilizers_shop.html")
+
+@app.route('/fertilizers_2')
+def fertilizers1():
+    return render_template("fertilizers_shop_2.html")
+
+@app.route('/fertilizers_3')
+def fertilizers2():
+    return render_template("fertilizers_shop_3.html")
+
+@app.route('/fert1')
+def fert():
+    return render_template("fert1.html")
+
+@app.route('/fert2')
+def fert2():
+    return render_template("fert2.html")
+
+@app.route('/fert3')
+def fert3():
+    return render_template("fert3.html")
+
+@app.route('/fert4')
+def fert4():
+    return render_template("fert4.html")
+
+@app.route('/fert5')
+def fert5():
+    return render_template("fert5.html")
+
+@app.route('/fert6')
+def fert6():
+    return render_template("fert6.html")
+
+@app.route('/fert7')
+def fert7():
+    return render_template("fert7.html")
+
+@app.route('/fert8')
+def fert8():
+    return render_template("fert8.html")
+
+@app.route('/fert9')
+def fert9():
+    return render_template("fert9.html")
+
+@app.route('/fert10')
+def fert10():
+    return render_template("fert10.html")
+
+@app.route('/fert11')
+def fert11():
+    return render_template("fert11.html")
+
+@app.route('/fert12')
+def fert12():
+    return render_template("fert12.html")
+
+@app.route('/fert13')
+def fert13():
+    return render_template("fert13.html")
+
+@app.route('/fert15')
+def fert15():
+    return render_template("fert15.html")
+
+@app.route('/fert16')
+def fert16():
+    return render_template("fert16.html")
+
+@app.route('/fert17')
+def fert17():
+    return render_template("fert17.html")
+
+@app.route('/fert18')
+def fert18():
+    return render_template("fert18.html")
+
+@app.route('/fert19')
+def fert19():
+    return render_template("fert19.html")
+
 @app.route('/shop')
 def shop():
     return render_template("shop.html")
@@ -167,6 +251,18 @@ def basc9():
 @app.route('/basics-2')
 def basc2():
     return render_template("basic-2.html")
+
+@app.route('/advc-1')
+def advc1():
+    return render_template("advc1.html")
+
+@app.route('/advc-2')
+def advc2():
+    return render_template("advc2.html")
+
+@app.route('/advc-3')
+def advc3():
+    return render_template("advc3.html")
 
 @app.route('/',methods=['POST'])
 def mail():
