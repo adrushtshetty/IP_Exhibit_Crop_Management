@@ -108,6 +108,26 @@ def shop():
 def mung():
     return render_template("mungbeans.html")
 
+@app.route('/equip1')
+def eqp1():
+    return render_template("equip1.html")
+
+@app.route('/equip2')
+def eqp2():
+    return render_template("equip2.html")
+
+@app.route('/equip3')
+def eqp3():
+    return render_template("equip3.html")
+
+@app.route('/equip4')
+def eqp4():
+    return render_template("equip4.html")
+
+@app.route('/equip')
+def eqp():
+    return render_template("equip_shop.html")
+
 @app.route('/muskmelons')
 def musk():
     return render_template("muskmelons.html")
