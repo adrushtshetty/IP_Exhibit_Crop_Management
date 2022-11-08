@@ -124,9 +124,45 @@ def eqp3():
 def eqp4():
     return render_template("equip4.html")
 
+@app.route('/equip5')
+def eqp5():
+    return render_template("equip5.html")
+
+@app.route('/equip6')
+def eqp6():
+    return render_template("equip6.html")
+
+@app.route('/equip7')
+def eqp7():
+    return render_template("equip7.html")
+
+@app.route('/equip8')
+def eqp8():
+    return render_template("equip8.html")
+
+@app.route('/equip9')
+def eqp9():
+    return render_template("equip9.html")
+
+@app.route('/equip10')
+def eqp10():
+    return render_template("equip10.html")
+
+@app.route('/equip11')
+def eqp11():
+    return render_template("equip11.html")
+
+@app.route('/equip12')
+def eqp12():
+    return render_template("equip12.html")
+
 @app.route('/equip')
 def eqp():
     return render_template("equip_shop.html")
+
+@app.route('/equip-pg1')
+def eqp_pg1():
+    return render_template("equip_shop1.html")
 
 @app.route('/muskmelons')
 def musk():
