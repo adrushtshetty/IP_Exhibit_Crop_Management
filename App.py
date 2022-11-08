@@ -320,6 +320,58 @@ def advc2():
 def advc3():
     return render_template("advc3.html")
 
+@app.route('/query')
+def queryUI():
+    return render_template('query.html')
+
+@app.route('/query',methods=['POST'])
+def query():
+    from email.message import EmailMessage
+    import ssl
+    import smtplib
+
+    name = request.form['name']
+    phone = request.form['phone']
+    message = request.form['message']
+    Subject = request.form['Subject']
+    pt_mail = request.form['email']
+
+    Name = name
+    Phone = str(phone)
+    Mail = str(pt_mail)
+
+    Message = message
+    msge = "Name: ", Name, "Phone: ", Phone, "Mail ID:", pt_mail, "Subject:", Subject, "Message: ", Message
+    msge = str(msge)
+
+    email_sender = "cropmanagementmail@gmail.com"
+    email_password = "mzukjnytdubqtxql"
+    email_receiver = ["adrushtshetty@gmail.com", "nithishg2005@gmail.com", "pikaa1024@gmail.com"]
+    subject = "Name: " + Name + "Mail ID: " + pt_mail + "Subject: " + Subject
+    body = """
+            {pName} has a query for the subject: {pSubject}
+
+
+            {pName}'s Message:
+            {pmessage}
+            --------------------------------------------------------
+
+            {pName}
+            Phone No.: {pNo}
+            Mail Id: {pMail}
+
+            """.format(pName=Name, pMail=Mail, pNo=Phone, pmessage=Message, pSubject=Subject)
+    em = EmailMessage()
+    em['From'] = email_sender
+    em['To'] = email_receiver
+    em['subject'] = subject
+    em.set_content(body)
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+        smtp.login(email_sender, email_password)
+        smtp.sendmail(email_sender, email_receiver, em.as_string())
+    return render_template("query.html")
+
 @app.route('/',methods=['POST'])
 def mail():
     import smtplib
@@ -469,7 +521,7 @@ def mail():
     <table border="0" cellpadding="0" cellspacing="0" class="image_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
     <tr>
     <td class="pad" style="padding-bottom:30px;padding-top:10px;width:100%;padding-right:0px;padding-left:0px;">
-    <div align="center" class="alignment" style="line-height:10px"><a href="https://ip-exhibit-crop-management.herokuapp.com/" style="outline:none" tabindex="-1" target="_blank"><img alt="Your Logo" src="https://lh3.googleusercontent.com/EoHopvPXAyrKhmDx7E_uiP68I1bO4oSDTFdlU2ea6rfOawFfv5liG9cEh4jRsoenKFiZHTsEbV6pT_ODREgXqeuZdZTykF_kHC1pxcuxfJplEbV_Rt-LLa8DlhePmp81eMzXIAFqaA=w2400" style="display: block; height: auto; border: 0; width: 163px; max-width: 100%;" title="Your Logo" width="163"/></a></div>
+    <div align="center" class="alignment" style="line-height:10px"><a href="https://ip-exhibit-crop-management.herokuapp.com/" style="outline:none" tabindex="-1" target="_blank"><img alt="Your Logo" src="https://lh3.googleusercontent.com/EwdWOQ64MVJ4UEQK-3UpeYzJX8axuy2tmojquGhRdrbHE8wLvdByHSgEjtsj48_pM9JPDp_yg-LTI6sB11WrQZgscH4PlsDb-1MrwweZZwsIui3jtQfsk4x2twJrwd_6eIepnz-80Q=w2400" style="display: block; height: auto; border: 0; width: 163px; max-width: 100%;" title="Your Logo" width="163"/></a></div>
     </td>
     </tr>
     </table>
